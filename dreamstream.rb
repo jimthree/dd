@@ -83,6 +83,7 @@ TweetStream::Client.new.track('last night I dreamt' , 'last night I dreamed', 'h
 		puts "-BLACKLISTED MENTION-"
 	else 
 		ap tweet.text
+		# insert the tweet object into the DB
 		id = DKDB[:dreams].insert_one(tweet.to_h)
 		begin
 			#fav = client.favorite(tweet.id)
@@ -91,5 +92,4 @@ TweetStream::Client.new.track('last night I dreamt' , 'last night I dreamed', 'h
 		end
 	end	
 end
-
 
